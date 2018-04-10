@@ -1,0 +1,93 @@
+<div class="row">
+    <div class="col-md-5">
+        <form class="form-horizontal well" ng-submit="ingresar(login)">
+          <fieldset>
+            <legend>Iniciar sesión</legend>
+            <div class="alert alert-dismissible alert-danger" ng-show="mensajeLogin">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Error en los datos:</strong> 
+              <p>El <strong>Email</strong> y/o la <strong>Contraseña</strong> son incorrectas vuelva a intentarlo, por favor.</p>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 control-label">Email</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputEmail" placeholder="Email" ng-model="login.email" maxlength="50" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 control-label">Password</label>
+              <div class="col-lg-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="login.password" maxlength="25" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-10 col-lg-offset-2">
+                <button type="reset" class="btn btn-default">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+    </div><!-- /.col -->
+
+    <div class="col-md-7">
+      <form class="form-horizontal well" ng-submit="registrar(registro)">
+        <fieldset>
+          <legend>Registrarse</legend>
+          <div class="alert alert-dismissible alert-success" ng-show="mensajeRegistro">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Exito:</strong> 
+              <p>Su cuenta ha sido creada, ahora inicie sesión son sus datos, por favor.</p>
+            </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Nombre</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" placeholder="Nombre" ng-model="registro.nombre" maxlength="25" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Apellido paterno</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" placeholder="Apellido paterno" ng-model="registro.apellidoPaterno" maxlength="25" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Apellido materno</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" placeholder="Apellido materno" ng-model="registro.apellidoMaterno" maxlength="25" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Dirección</label>
+            <div class="col-lg-10">
+              <textarea class="form-control" rows="3" placeholder="Dirección" ng-model="registro.direccion" maxlength="250" required></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">RFC</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control text-uppercase" placeholder="RFC" ng-model="registro.rfc" maxlength="15" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" placeholder="Email" ng-model="registro.email" maxlength="50" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="registro.password" maxlength="25" required>
+            </div>
+          </div>          
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <button type="reset" class="btn btn-default">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Registrarse</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div><!-- /.col -->
+</div><!-- /.row -->

@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Factura de compra</h1>
+  </div><!-- /.col -->
+</div><!-- /.row -->
+
+<div class="row" ng-if="usuario">
+  <div class="col-md-12">
+    <h3>Datos del cliente</h3>
+    <table class="table table-bordered">
+      <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Dirección</th>
+          <th>RFC</th>
+      </tr>
+      <tr>
+          <td class="text-capitalize">{{datosUsuario.nombre}} {{datosUsuario.apellidoPaterno}} {{datosUsuario.apellidoMaterno}}</td>
+          <td>{{datosUsuario.email}}</td>
+          <td>{{datosUsuario.direccion}}</td>
+          <td class="text-uppercase">{{datosUsuario.rfc}}</td>
+      </tr>
+    </table>
+  </div><!-- /.col -->
+</div><!-- /.row -->
+
+<div class="row" ng-if="usuario && productosCarrito.length > 0">
+  <div class="col-md-12">
+    <h3>Datos de la compra</h3>
+    <table class="table table-bordered">
+      <tr>
+          <th>Descripción del articulo</th>
+          <th>Marca</th>
+          <th>Cantidad</th>
+          <th>Precio unitario</th>
+          <th>Subtotal</th>
+      </tr>
+      <tr ng-repeat="producto in productosCarrito">
+          <td>{{producto.titulo}}</td>
+          <td>{{producto.marca}}</td>
+          <td>{{producto.cantidad}}</td>
+          <td>{{producto.precio | currency}}</td>
+          <td>{{producto.precio * producto.cantidad | currency}}</td>
+      </tr>
+    </table>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Enganche</th>
+            <th>Bonificación del enganche</th>
+            <th>Total de Adeudo</th>
+        </tr>
+        <tr>
+            <td>{{enganche | currency}}</td>
+            <td>{{bonificacion | currency}}</td>
+            <td>{{totalAdeudo | currency}}</td>
+        </tr>
+    </table>
+
+    <h3>Abonos mensuales</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Meses</th>
+            <th>Abono</th>
+            <th>Total a pagar</th>
+            <th>Ahorra</th>
+        </tr>
+        <tr ng-repeat="abonoMensual in abonosMensuales">
+            <td>{{abonoMensual.meses}}</td>
+            <td>{{abonoMensual.abono | currency}}</td>
+            <td>{{abonoMensual.totalPagar | currency}}</td>
+            <td>{{abonoMensual.ahorra | currency}}</td>
+        </tr>
+    </table>
+  </div><!-- /.col -->
+</div><!-- /.row -->
+
+<div class="row" ng-if="!usuario">
+    <div class="col-sm-12">
+      <p>Para agregar productos al carrito se necesita que <a href="#/login">inicie sesión</a>.</p>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+<div class="row" ng-if="usuario && productosCarrito.length <= 0">
+    <div class="col-sm-12">
+      <p>Aun no ha agregado ningun producto al carrito de compras <a href="#/">volver</a>.</p>
+    </div><!-- /.col -->
+</div><!-- /.row -->

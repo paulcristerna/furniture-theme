@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h1>Productos</h1>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+<div class="row">
+    <div class="col-sm-4 text-center producto" ng-repeat="producto in productos | filter:buscar">
+        <img ng-src="{{producto.imagen}}" width="100%">
+        <h3>{{producto.titulo}}</h3>
+        <p>{{producto.marca}}</p>
+        <p><strong>{{producto.precio | currency}}</strong></p>
+        <p><a href="#/ver/{{producto.id}}" class="btn btn-primary">Ver más <span class="glyphicon glyphicon-chevron-right"></span></a></p>
+    </div>
+</div><!-- /.row -->
